@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<junitreport todir="./reports">
+    <fileset dir="./reports">
+        <include name="TEST-*.xml"/>
+    </fileset>
+    <report format="frames" todir="./target/html"/>
+</junitreport>
+
+<suite name = "Junit Suite" thread-count ="2" parallel="tests" verbose="4">
+<test name = "Sample test">
+<classes>
+<class name = "com.qa.cmtester.tests.LoginPagetest.java" />
+<class name = "com.qa.cmtester.tests.HomePageTest.java"/>
+<class name = "com.qa.cmtester.tests.RecordPageTest.java"/>
+<class name = "com.qa.cmtester.tests.IntruderPageTest.java"/>
+</classes>
+</test>
+</suite>

@@ -1,0 +1,6 @@
+projectKey=playwright_pom
+serverUrl=http://localhost:9000
+serverVersion=9.4.0.54424
+dashboardUrl=http://localhost:9000/dashboard?id=playwright_pom
+ceTaskId=AYSte6P7iTiZ4fq4y7fQ
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYSte6P7iTiZ4fq4y7fQ

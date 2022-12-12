@@ -1,0 +1,217 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>PlaywrightPOM</groupId>
+  <artifactId>PlaywrightPOm</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>PlaywrightPOm</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+<dependency>
+    <groupId>com.microsoft.playwright</groupId>
+    <artifactId>playwright</artifactId>
+    <version>1.27.0</version>
+</dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>5.9.0</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.9.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-launcher</artifactId>
+    <version>1.9.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-runner</artifactId>
+    <version>1.9.0</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-engine</artifactId>
+    <version>1.9.1</version>
+    <scope>test</scope>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>2.6</version>
+</dependency>
+<dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <version>5.9.0</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-ooxml-schemas</artifactId>
+    <version>4.1.2</version>
+</dependency>
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.11.0</version>
+</dependency>
+		
+<dependency>
+    <groupId>org.apache.poi</groupId>
+    <artifactId>poi-scratchpad</artifactId>
+    <version>5.2.2</version>
+</dependency>
+		
+  </dependencies>
+  <build>
+   <resources>
+     <resource>
+       <directory>src/main/java</directory>
+     </resource>
+   </resources>
+    <testResources>
+    <testResource>
+            <directory>src/test/java/com/qa/cmtester/base</directory>
+            <includes>
+    <include>**/Test*.java</include>
+    <include>**/*Test.java</include>
+    <include>**/*Tests.java</include>
+    <include>**/*TestCase.java</include>
+    <include>**/Test.java</include>
+</includes>
+        </testResource>
+        <testResource>
+            <directory>src/test/java/com/qa/cmtester/tests</directory>
+<includes>
+    <include>**/BaseTest.java</include>
+    <include>**/LoginPageTest.java</include>
+    <include>**/HomePageTest.java</include>
+    <include>**/IntruderPageTest.java</include>
+    <include>**/RecordPageTest.java</include>
+</includes>
+        </testResource>
+    </testResources>
+  <plugins>
+  <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+             <version>3.8.1</version>
+            <configuration>
+                <source>11</source>
+                <target>11</target>
+            </configuration>
+        </plugin>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M7</version>
+    <configuration>
+    <properties>
+                    <configurationParameters>
+                        junit.jupiter.conditions.deactivate = *
+                        junit.jupiter.extensions.autodetection.enabled = true
+                        junit.jupiter.testinstance.lifecycle.default = per_class
+                        junit.jupiter.execution.parallel.enabled = true
+                    </configurationParameters>
+                </properties>
+    <includes>
+      <include>**/RunnerOne.java</include>
+    </includes> 
+    </configuration>
+    </plugin>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-site-plugin</artifactId>
+    <version>4.0.0-M3</version>
+    <executions>
+     <execution>
+      <id>attach-descriptor</id>
+      <goals>
+      <goal>attach-descriptor</goal>
+      </goals> 
+      </execution>
+      </executions>
+     </plugin>
+  </plugins>
+  </build>
+  <reporting>
+<plugins>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-project-info-reports-plugin</artifactId>
+    <version>3.4.1</version>
+</plugin>
+<plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+</plugins>
+</reporting>
+</project>
